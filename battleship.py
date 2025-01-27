@@ -474,37 +474,37 @@ def runSimulation(w, h):
 ### RUN CODE ###
 # what to do
 # This code runs the test cases to check your work
-# if __name__ == "__main__":
+if __name__ == "__main__":
 
-    # print("\n" + "#"*15 + " STAGE 1 TESTS " +  "#" * 16 + "\n")
-    # test.stage1Tests()
-    # test.testEmptyGrid()
-    # test.testCreateShip()
-    # test.testCheckShip()
-    # test.testAddShips()
-    # test.testGrid()
+    print("\n" + "#"*15 + " STAGE 1 TESTS " +  "#" * 16 + "\n")
+    test.stage1Tests()
+    test.testEmptyGrid()
+    test.testCreateShip()
+    test.testCheckShip()
+    test.testAddShips()
+    test.testGrid()
 
 
     ## Uncomment these for STAGE 2 ##
 
-    # print("\n" + "#"*15 + " STAGE 2 TESTS " +  "#" * 16 + "\n")
-    # test.stage2Tests()
-    # test.testIsVertical()
-    # test.testIsHorizontal()
+    print("\n" + "#"*15 + " STAGE 2 TESTS " +  "#" * 16 + "\n")
+    test.stage2Tests()
+    test.testIsVertical()
+    test.testIsHorizontal()
 
-    # test.testGetClickedCell()
-    # test.testShipIsValid()
+    test.testGetClickedCell()
+    test.testShipIsValid()
     
 
-    ## Uncomment these for STAGE 3 ##
+    # Uncomment these for STAGE 3 ##
     
-    # print("\n" + "#"*15 + " STAGE 3 TESTS " +  "#" * 16 + "\n")
-    # test.stage3Tests()
-    # test.testUpdateBoard()
-    # test.testGetComputerGuess()
-    # test.testIsGameOver()
-    # test.testDrawGameOver()
+    print("\n" + "#"*15 + " STAGE 3 TESTS " +  "#" * 16 + "\n")
+    test.stage3Tests()
+    test.testUpdateBoard()
+    test.testGetComputerGuess()
+    test.testIsGameOver()
+    test.testDrawGameOver()
     
 
-    ## Finally, run the simulation to test it manually ##
-    ##runSimulation(500, 500)
+    # Finally, run the simulation to test it manually ##
+    runSimulation(500, 500)
