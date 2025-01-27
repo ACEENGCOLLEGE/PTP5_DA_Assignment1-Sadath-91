@@ -7,7 +7,7 @@ Roll No:
 import battleship_test as test
 
 
-project = "Battleship" # don't edit this
+project = "Battleship" # don't edit 
 
 ### SIMULATION FUNCTIONS ###
 
@@ -439,6 +439,7 @@ def mouseEventHandler(data, userCanvas, compCanvas, event, board):
     updateView(data, userCanvas, compCanvas)
 
 def runSimulation(w, h):
+    x={}
     data = { }
     makeModel(data)
 
@@ -471,7 +472,7 @@ def runSimulation(w, h):
 
 
 ### RUN CODE ###
-
+# what to do
 # This code runs the test cases to check your work
 # if __name__ == "__main__":
 
