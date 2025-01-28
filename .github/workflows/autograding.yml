@@ -35,4 +35,8 @@ jobs:
       # Run the tests
       - name: Run Tests
         run: |
+<<<<<<< HEAD
           python -m pytest battleship_test.py --tb=short
+=======
+          python -m pytest battleship_test.py --tb=short
+>>>>>>> 30dac6bca04b3fba2848ad77efaba9e853e0d41c
