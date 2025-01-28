@@ -13,26 +13,18 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: battleship_test.py
-      id: battleship_test-py
-      uses: classroom-resources/autograding-python-grader@v1
-      with:
-        timeout: 10
-        max-score: 10
-        setup-command: ''
-    - name: battletest.py
-      id: battletest-py
+    - name: TestCase1
+      id: testcase1
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: battletest.py
+        test-name: TestCase1
         setup-command: pip install pytest
         command: python -m pytest battleship_test.py
-        timeout: 10
+        timeout: 3
         max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        BATTLESHIP_TEST-PY_RESULTS: "${{steps.battleship_test-py.outputs.result}}"
-        BATTLETEST-PY_RESULTS: "${{steps.battletest-py.outputs.result}}"
+        TESTCASE1_RESULTS: "${{steps.testcase1.outputs.result}}"
       with:
-        runners: TestCase1
+        runners: testcase1
