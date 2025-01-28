@@ -490,10 +490,10 @@ if __name__ == "__main__":
     print("\n" + "#"*15 + " STAGE 2 TESTS " +  "#" * 16 + "\n")
     test.stage2Tests()
     test.testIsVertical()
-    # test.testIsHorizontal()
+    test.testIsHorizontal()
 
     test.testGetClickedCell()
-    # test.testShipIsValid()
+    test.testShipIsValid()
     
 
     # Uncomment these for STAGE 3 ##

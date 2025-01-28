@@ -124,15 +124,15 @@ def testIsVertical():
     assert(isVertical([ [4, 5], [5, 5], [6, 5] ]) == True)
     print("... done!")
 
-# def testIsHorizontal():
-#     print("Testing isHorizontal()...", end="")
-#     assert(isHorizontal([ [1, 0], [1, 1], [1, 2] ]) == True)
-#     assert(isHorizontal([ [1, 2], [1, 0], [1, 1] ]) == True) # order doesn't matter
-#     assert(isHorizontal([ [0, 1], [1, 1], [2, 1] ]) == False)
-#     assert(isHorizontal([ [0, 0], [0, 1], [0, 3] ]) == False) # must be sequential
-#     assert(isHorizontal([ [0, 1], [2, 3], [1, 0] ]) == False)
-#     assert(isHorizontal([ [5, 4], [5, 5], [5, 6] ]) == True)
-#     print("... done!")
+def testIsHorizontal():
+    print("Testing isHorizontal()...", end="")
+    assert(isHorizontal([ [1, 0], [1, 1], [1, 2] ]) == True)
+    assert(isHorizontal([ [1, 2], [1, 0], [1, 1] ]) == True) # order doesn't matter
+    assert(isHorizontal([ [0, 1], [1, 1], [2, 1] ]) == False)
+    assert(isHorizontal([ [0, 0], [0, 1], [0, 3] ]) == False) # must be sequential
+    assert(isHorizontal([ [0, 1], [2, 3], [1, 0] ]) == False)
+    assert(isHorizontal([ [5, 4], [5, 5], [5, 6] ]) == True)
+    print("... done!")
 
 def testGetClickedCell():
     print("Testing getClickedCell()...", end="")
@@ -160,23 +160,23 @@ def testDrawShip():
     print("THEN CHECK WHETHER THE CANVAS SHOWS THE PICTURE IN THE WRITEUP")
     print("... done!")
 
-# def testShipIsValid():
-#     print("Testing shipIsValid()...", end="")
-#     grid = [ [1] * 10 for row in range(10) ]
-#     grid[0][1] = 2
+def testShipIsValid():
+    print("Testing shipIsValid()...", end="")
+    grid = [ [1] * 10 for row in range(10) ]
+    grid[0][1] = 2
 
-#     # can't place a ship that overlaps the board
-#     ship = [ [0, 1], [1, 1], [2, 1] ]
-#     assert(shipIsValid(grid, ship) == False)
-#     grid[0][1] = 1
-#     grid[1][1] = 2
-#     assert(shipIsValid(grid, ship) == False)
-#     grid[1][1] = 1
-#     grid[2][1] = 2
-#     assert(shipIsValid(grid, ship) == False)
-#     grid[2][1] = 1
-#     grid[9][9] = 2
-#     assert(shipIsValid(grid, ship) == True) # no overlap!
+    # can't place a ship that overlaps the board
+    ship = [ [0, 1], [1, 1], [2, 1] ]
+    assert(shipIsValid(grid, ship) == False)
+    grid[0][1] = 1
+    grid[1][1] = 2
+    assert(shipIsValid(grid, ship) == False)
+    grid[1][1] = 1
+    grid[2][1] = 2
+    assert(shipIsValid(grid, ship) == False)
+    grid[2][1] = 1
+    grid[9][9] = 2
+    assert(shipIsValid(grid, ship) == True) # no overlap!
 
     # can't place a ship that isn't horizontal or vertical
     # ship = [ [0, 1], [2, 3], [5, 6] ]
@@ -185,10 +185,10 @@ def testDrawShip():
 
 def stage2Tests():
     testIsVertical()
-    # testIsHorizontal()
+    testIsHorizontal()
     testGetClickedCell()
     testDrawShip()
-    # testShipIsValid()
+    testShipIsValid()
 
 ### STAGE 3 TESTS ###
 
