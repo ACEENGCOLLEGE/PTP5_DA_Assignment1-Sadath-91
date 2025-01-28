@@ -11,18 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
     steps:
+    - name: Install System Dependencies
+      run: sudo apt-get update && sudo apt-get install -y python3-tk
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: battleship_test.py
-      id: battleship_test-py
-      uses: classroom-resources/autograding-python-grader@v1
+    - name: TestCase1
+      id: testcase1
+      uses: classroom-resources/autograding-command-grader@v1
       with:
-        timeout: 10
+        test-name: TestCase1
+        setup-command: pip install pytest
+        command: python -m pytest battleship_test.py
+        timeout: 3
         max-score: 10
-        setup-command: ''
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        BATTLESHIP_TEST-PY_RESULTS: "${{steps.battleship_test-py.outputs.result}}"
+        TESTCASE1_RESULTS: "${{steps.testcase1.outputs.result}}"
       with:
-        runners: battleship_test-py
+        runners: testcase1
