@@ -1,12 +1,12 @@
 """
 Battleship Project
-Name:
+Name: xyz
 Roll No:
 """
 
 import battleship_test as test
 
-
+p=0
 project = "Battleship" # don't edit 
 
 ### SIMULATION FUNCTIONS ###
