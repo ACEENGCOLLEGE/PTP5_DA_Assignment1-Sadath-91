@@ -16,7 +16,7 @@ def compute_grade(test_results_file):
     pass_percentage = (passed_tests / total_tests) * 100
 
     if pass_percentage >= 80:
-        grade = "A"
+        grade = "Z"
     elif pass_percentage >= 60:
         grade = "B"
     else:
