@@ -46,10 +46,10 @@ jobs:
           echo "Final Percentage: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}%"
           echo "Final Grade: ${{ steps.compute-grade.outputs.FINAL_GRADE }}"
 
-      - name: Autograding Reporter
-        # uses: classroom-resources/autograding-grading-reporter@v1
-        env:
-          # FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
-          FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
-        # with:
-        #   runners: run-tests,compute-grade  # Ensure it's a single string
+      # - name: Autograding Reporter
+      #   uses: classroom-resources/autograding-grading-reporter@v1
+      #   env:
+      #     FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
+      #     FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
+      #   with:
+      #     runners: run-tests,compute-grade  # Ensure it's a single string
