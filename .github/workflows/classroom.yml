@@ -28,15 +28,28 @@ jobs:
         run: |
           coverage run -m pytest battleship_test.py --tb=short --json-report --json-report-file=test_results.json
           coverage report -m
-        continue-on-error: true  # Allows workflow to continue even if tests fail
+        continue-on-error: true  
 
-      - name: Compute Grade
+      - name: Compute Grade and Percentage
         id: compute-grade
         run: |
-          GRADE=$(python grade_calculator.py test_results.json | grep "Grade=" | cut -d'=' -f2)
+          python grade_calculator.py test_results.json
+          PERCENTAGE=$(cat grade_output.txt | grep "Percentage=" | cut -d'=' -f2)
+          GRADE=$(cat grade_output.txt | grep "Grade=" | cut -d'=' -f2)
+          echo "FINAL_PERCENTAGE=$PERCENTAGE" >> $GITHUB_ENV
           echo "FINAL_GRADE=$GRADE" >> $GITHUB_ENV
+          echo "FINAL_PERCENTAGE=$PERCENTAGE" >> $GITHUB_OUTPUT
+          echo "FINAL_GRADE=$GRADE" >> $GITHUB_OUTPUT
+
+      - name: Print Results
+        run: |
+          echo "Final Percentage: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}%"
+          echo "Final Grade: ${{ steps.compute-grade.outputs.FINAL_GRADE }}"
 
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
+        with:
+          runners: run-tests,compute-grade
         env:
-          FINAL_GRADE: ${{ env.FINAL_GRADE }}
+          FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
+          FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
