@@ -48,8 +48,6 @@ jobs:
 
       - name: Report Grades to GitHub Classroom
         uses: classroom-resources/autograding-grading-reporter@v1
-        with:
-          runners: "run-tests,compute-grade"
         env:
           FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
           FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
