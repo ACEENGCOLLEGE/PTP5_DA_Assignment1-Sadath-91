@@ -49,7 +49,7 @@ jobs:
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         with:
-          runners: run-tests,compute-grade  # Use a comma-separated string instead of an array
+          runners: "run-tests,compute-grade"  # Ensure it's a single string
         env:
           FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
           FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
