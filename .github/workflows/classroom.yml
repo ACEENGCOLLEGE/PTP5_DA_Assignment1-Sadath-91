@@ -1,4 +1,5 @@
 name: Autograding Tests
+
 'on':
   - push
   - repository_dispatch
@@ -27,15 +28,15 @@ jobs:
         run: |
           coverage run -m pytest battleship_test.py --tb=short --json-report --json-report-file=test_results.json
           coverage report -m
-        continue-on-error: true
+        continue-on-error: true  # Allows workflow to continue even if tests fail
 
       - name: Compute Grade
         id: compute-grade
         run: |
           GRADE=$(python grade_calculator.py test_results.json | grep "Grade=" | cut -d'=' -f2)
-          echo "::set-output name=result::$GRADE"
+          echo "FINAL_GRADE=$GRADE" >> $GITHUB_ENV
 
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         env:
-          FINAL_GRADE: "${{ steps.compute-grade.outputs.result }}"
+          FINAL_GRADE: ${{ env.FINAL_GRADE }}
