@@ -46,10 +46,9 @@ jobs:
           echo "Final Percentage: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}%"
           echo "Final Grade: ${{ steps.compute-grade.outputs.FINAL_GRADE }}"
 
-      - name: Autograding Reporter
+      - name: Report Grades to GitHub Classroom
         uses: classroom-resources/autograding-grading-reporter@v1
-        with:
-          runners: "run-tests,compute-grade"  # Ensure it's a single string
         env:
-          FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
-          FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
+          FINAL_GRADE: $FINAL_GRADE
+          # FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
+          # FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
