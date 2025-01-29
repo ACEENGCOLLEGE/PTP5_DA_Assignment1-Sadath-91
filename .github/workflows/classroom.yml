@@ -47,7 +47,7 @@ jobs:
           echo "Final Grade: ${{ steps.compute-grade.outputs.FINAL_GRADE }}"
 
       - name: Autograding Reporter
-        uses: classroom-resources/autograding-grading-reporter@v1
+        # uses: classroom-resources/autograding-grading-reporter@v1
         env:
           # FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
           FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
