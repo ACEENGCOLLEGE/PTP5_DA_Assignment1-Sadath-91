@@ -51,5 +51,5 @@ jobs:
         with:
           runners: run-tests,compute-grade
         env:
-          FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
-          FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
+          RUN-FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
+          RUN-FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
