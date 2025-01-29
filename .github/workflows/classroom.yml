@@ -49,7 +49,7 @@ jobs:
       - name: Report Grades to GitHub Classroom
         uses: classroom-resources/autograding-grading-reporter@v1
         with:
-          runners: "compute-grade"  # Required field (string, not array)
+          runners: "run-autograding-tests"  # Required field (string, not array)
         env:
           # FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
           FINAL_PERCENTAGE:  ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}%
