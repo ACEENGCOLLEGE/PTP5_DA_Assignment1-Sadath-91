@@ -49,7 +49,7 @@ jobs:
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         with:
-          runners: run-tests,compute-grade
+          runners: "run-tests,compute-grade"  # Comma-separated string
         env:
-          RUN-FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
-          RUN-FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
+          FINAL_PERCENTAGE: ${{ steps.compute-grade.outputs.FINAL_PERCENTAGE }}
+          FINAL_GRADE: ${{ steps.compute-grade.outputs.FINAL_GRADE }}
