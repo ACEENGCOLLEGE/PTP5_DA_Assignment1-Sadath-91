@@ -214,7 +214,7 @@ Parameters: 2D list of ints
 Returns: bool
 '''
 def isHorizontal(ship):
-    # ship.sort()
+    ship.sort()
         # Check if all coordinates share the same row
     row = ship[0][0]
     for i in ship[1:]:
