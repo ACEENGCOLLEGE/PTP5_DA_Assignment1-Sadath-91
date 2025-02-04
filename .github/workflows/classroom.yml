@@ -76,8 +76,8 @@ jobs:
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         env:
-          T1_RESULTS: '{"score": 10}'
-          T2_RESULTS: '{"score": 20}'
+          T1_RESULTS: '{"totalPoints":4,"maxPoints":4}'
+          T2_RESULTS: '{"totalPoints":4,"maxPoints":4}'
         with:
           runners: t1,t2
       
