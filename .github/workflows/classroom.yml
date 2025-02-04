@@ -45,7 +45,8 @@ jobs:
             exit 1  # Fail the workflow if the file is missing
           fi
 
-
+      - name: Debug Compute Grade Outputs
+        run: echo "SCORE=${{ steps.compute-grade.outputs.SCORE }}, TOTAL=${{ steps.compute-grade.outputs.TOTAL }}"
       - name: Print Results
         run: |
           echo "Final Score: ${{ steps.compute-grade.outputs.SCORE }}/ ${{ steps.compute-grade.outputs.TOTAL }}"
