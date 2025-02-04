@@ -30,8 +30,8 @@ jobs:
           coverage report -m
         continue-on-error: true  
 
-      - name: Compute Grade and Percentage
-        id: compute-grade
+      - name: T1
+        id: t1
         run: |
           echo "Debug: Calculating grade"
           score_value=85  # Example value, replace with your actual computation
@@ -62,9 +62,9 @@ jobs:
           echo "Final Score: ${{ steps.compute-grade.outputs.SCORE }}/ ${{ steps.compute-grade.outputs.TOTAL }}"
 
       - name: Report Grades to GitHub Classroom
-        uses: classroom-resources/autograding-grading-reporter@v1
-        with:
-          runners: "run-tests"  # FIX: This should be the test step, NOT compute-grade
+        uses: classroom-resources/autograding-grading-reporter@v1  
         env:
-          SCORE: ${{ steps.compute-grade.outputs.SCORE }}
-          TOTAL: ${{ steps.compute-grade.outputs.TOTAL }}
+          T1_RESULTS: "${{steps.t1.outputs.result}}"
+          TOTAL: ${{ steps.compute-grade.outputs.result }}
+        with:
+          runners: t1
