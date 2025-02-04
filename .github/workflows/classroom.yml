@@ -34,12 +34,10 @@ jobs:
         id: compute-grade
         run: |
           python grade_calculator.py test_results.json
-          SCORE=$(cat grade_output.txt | grep "Points=" | cut -d'=' -f2)
-          TOTAL=$(cat grade_output.txt | grep "TotalPoints=" | cut -d'=' -f2)
-          echo "SCORE=$SCORE" >> $GITHUB_ENV
-          echo "TOTAL=$TOTAL" >> $GITHUB_ENV
-          echo "SCORE=$SCORE" >> $GITHUB_OUTPUT
-          echo "TOTAL=$TOTAL" >> $GITHUB_OUTPUT
+          cat grade_output.txt >> $GITHUB_ENV
+          while IFS='=' read -r key value; do
+            echo "$key=$value" >> $GITHUB_OUTPUT
+          done < grade_output.txt
 
       - name: Print Results
         run: |
@@ -48,7 +46,7 @@ jobs:
       - name: Report Grades to GitHub Classroom
         uses: classroom-resources/autograding-grading-reporter@v1
         with:
-          runners: "compute-grade"
+          runners: "run-tests"  # FIX: This should be the test step, NOT compute-grade
         env:
           SCORE: ${{ steps.compute-grade.outputs.SCORE }}
           TOTAL: ${{ steps.compute-grade.outputs.TOTAL }}
