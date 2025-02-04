@@ -34,10 +34,17 @@ jobs:
         id: compute-grade
         run: |
           python grade_calculator.py test_results.json
-          cat grade_output.txt >> $GITHUB_ENV
-          while IFS='=' read -r key value; do
-            echo "$key=$value" >> $GITHUB_OUTPUT
-          done < grade_output.txt
+          if [[ -f grade_output.txt ]]; then
+            cat grade_output.txt  # Debugging: Check file contents
+            while IFS='=' read -r key value; do
+              echo "$key=$value" >> $GITHUB_ENV
+              echo "$key=$value" >> $GITHUB_OUTPUT
+            done < grade_output.txt
+          else
+            echo "ERROR: grade_output.txt not found!" >&2
+            exit 1  # Fail the workflow if the file is missing
+          fi
+
 
       - name: Print Results
         run: |
